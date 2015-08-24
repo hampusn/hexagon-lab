@@ -1,0 +1,20 @@
+/*!
+ * @file
+ * @group hampusn-hexagon-lab
+ * @author Hampus Nordin <nordin.hampus@gmail.com>
+ * 
+ * Main styling
+ * 
+ * Version: {{version}}
+ * Latest built: {{timestamp}}
+ */
+
+// Normalize
+@import "normalize";
+
+// Bourbon
+@import "bourbon";
+
+// Modules
+@import "modules/clip-path";
+@import "modules/hexagon";

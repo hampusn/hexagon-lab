@@ -1,0 +1,76 @@
+/**
+ * @file
+ * @group Modules
+ * Sass Partial: modules/_hexagon.scss
+ * 
+ * Contains styling for hexagons.
+ *
+ * 1. Config - Configuration and variables
+ * 2. Base - Basic styling
+ */
+
+
+/*
+ * 1. Config
+ ******************/
+
+$image-size: 150px;
+
+
+/*
+ * 2. Base
+ ******************/
+
+.hexagon-wrapper {
+  margin: 3em auto;
+  max-width: $image-size * 9;
+  overflow: hidden;
+  padding-top: $image-size / 4;
+}
+
+.hexagon-container {
+  left: -$image-size / 2;
+  position: relative;
+  width: 2000px;
+}
+.hexagon-row {
+  position: relative;
+  bottom: $image-size / 4;
+  overflow: hidden;
+  
+  &:nth-child(odd) {
+    left: $image-size / 2;
+  }
+  
+  &:hover {
+    z-index: 2;
+  }
+}
+
+@for $i from 1 through 10 {
+  .hexagon-row:nth-child(#{$i}) {
+    top: -$i * ($image-size / 4);
+  }
+}
+
+.hexagon {
+  display: block;
+  float: left;
+  margin: 0 auto;
+  max-width: 10%;
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+
+    -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    -webkit-clip-path: url("#polygon-clip-hexagon");
+    clip-path: url("#polygon-clip-hexagon");
+        
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
