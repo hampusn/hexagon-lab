@@ -62,36 +62,6 @@ get "/oauth/callback" do
   redirect "/"
 end
 
-get '/feed/:tag' do
-  client = Instagram.client(:access_token => session[:access_token])
-  html = params['tag']
-
-  tags = client.tag_search(params['tag'])
-  tag_name = tags[0].name
-
-  images = client.tag_recent_media(tag_name)
-  next_max_id = images.pagination.next_max_id
-
-  $i = 0
-  $num = 3
-
-  while $i < $num  do
-    next_images = client.tag_recent_media(tag_name, :max_id => next_max_id)
-    next_max_id = next_images.pagination.next_max_id
-
-    images += next_images
-
-    $i += 1
-  end
-
-  html << "<h2>Tag Name = #{tag_name}.</h2>"
-
-  for media_item in images
-    html << "<img src='#{media_item.images.thumbnail.url}'>"
-  end
-  html
-end
-
 get "/limits" do
   client = Instagram.client(:access_token => session[:access_token])
   html = "<h1/>View API Rate Limit and calls remaining</h1>"
