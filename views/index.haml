@@ -1,0 +1,7 @@
+
+
+%p= @user.username
+
+- @images.each do |media_item|
+  
+  %img(src="#{media_item.images.thumbnail.url}")
