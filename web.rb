@@ -31,7 +31,9 @@ get "/" do
     redirect '/'
   end
 
-  tags = client.tag_search('coffee')
+  search_tag = params[:tag] || 'coffee'
+
+  tags = client.tag_search(search_tag)
   tag_name = tags[0].name
 
   @images = client.tag_recent_media(tag_name)
