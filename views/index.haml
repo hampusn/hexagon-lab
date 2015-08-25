@@ -2,6 +2,10 @@
 
 %p= @user.username
 
-- @images.each do |media_item|
-  
-  %img(src="#{media_item.images.thumbnail.url}")
+.hexagon-wrapper
+  .hexagon-container
+    - @images.each_slice(9) do |row|
+      .hexagon-row
+        - row.each do |media_item|
+          .hexagon
+            %img(src="#{media_item.images.thumbnail.url}")

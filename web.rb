@@ -3,11 +3,13 @@ require "instagram"
 
 enable :sessions
 
-CALLBACK_URL = "http://localhost:4567/oauth/callback"
+INSTAGRAM_CALLBACK_URL = ENV['INSTAGRAM_CALLBACK_URL']
+INSTAGRAM_CLIENT_ID = ENV['INSTAGRAM_CLIENT_ID']
+INSTAGRAM_CLIENT_SECRET = ENV['INSTAGRAM_CLIENT_SECRET']
 
 Instagram.configure do |config|
-  config.client_id = "2159a7b024f148ee9fca5ebd7cbb94ec"
-  config.client_secret = "a4d185fc007b433e839d63e8f46d28cb"
+  config.client_id = INSTAGRAM_CLIENT_ID
+  config.client_secret = INSTAGRAM_CLIENT_SECRET
   # For secured endpoints only
   #config.client_ips = '<Comma separated list of IPs>'
 end
@@ -53,43 +55,13 @@ get "/login" do
 end
 
 get "/oauth/connect" do
-  redirect Instagram.authorize_url(:redirect_uri => CALLBACK_URL)
+  redirect Instagram.authorize_url(:redirect_uri => INSTAGRAM_CALLBACK_URL)
 end
 
 get "/oauth/callback" do
-  response = Instagram.get_access_token(params[:code], :redirect_uri => CALLBACK_URL)
+  response = Instagram.get_access_token(params[:code], :redirect_uri => INSTAGRAM_CALLBACK_URL)
   session[:access_token] = response.access_token
   redirect "/"
-end
-
-get '/feed/:tag' do
-  client = Instagram.client(:access_token => session[:access_token])
-  html = params['tag']
-
-  tags = client.tag_search(params['tag'])
-  tag_name = tags[0].name
-
-  images = client.tag_recent_media(tag_name)
-  next_max_id = images.pagination.next_max_id
-
-  $i = 0
-  $num = 3
-
-  while $i < $num  do
-    next_images = client.tag_recent_media(tag_name, :max_id => next_max_id)
-    next_max_id = next_images.pagination.next_max_id
-
-    images += next_images
-
-    $i += 1
-  end
-
-  html << "<h2>Tag Name = #{tag_name}.</h2>"
-
-  for media_item in images
-    html << "<img src='#{media_item.images.thumbnail.url}'>"
-  end
-  html
 end
 
 get "/limits" do
