@@ -1,5 +1,6 @@
 require "sinatra"
 require "instagram"
+require 'sinatra/activerecord'
 
 enable :sessions
 
