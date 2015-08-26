@@ -26,7 +26,9 @@
       .site-header
         .site-header__topbar.container
           - if @user
-            %p= @user.username
+            %p
+              = @user.username
+              %a.btn.btn--small.btn-logout{ href: "/logout", title: "Destroy the cookie!" } Logout
           - else
             %p Unknown
 

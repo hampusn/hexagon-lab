@@ -57,8 +57,15 @@ get "/" do
 end
 
 get "/login" do
+  redirect('/') unless !is_authenticated?
+
   @title = "Login - Hexagon Lab"
   haml :login
+end
+
+get "/logout" do
+  session.delete(:access_token)
+  redirect '/'
 end
 
 get "/oauth/connect" do
