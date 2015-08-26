@@ -5,8 +5,8 @@
  * 
  * Main styling
  * 
- * Version: 1.0.0
- * Latest built: Mon Aug 24 2015 23:28:54 GMT+0200 (CEST)
+ * Version: 0.0.2
+ * Latest built: Wed Aug 26 2015 07:47:20 GMT+0200 (CEST)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
@@ -452,7 +452,8 @@ th {
   display: block;
   float: left;
   margin: 0 auto;
-  max-width: 10%; }
+  max-width: 10%;
+  position: relative; }
   .hexagon img {
     max-width: 100%;
     height: auto;
@@ -461,5 +462,11 @@ th {
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     -webkit-clip-path: url("#polygon-clip-hexagon");
     clip-path: url("#polygon-clip-hexagon"); }
-    .hexagon img:hover {
-      opacity: 0.5; }
+
+.hexagon__link {
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  display: block; }
+  .hexagon__link:hover {
+    opacity: 0.5; }

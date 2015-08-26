@@ -7,8 +7,6 @@
     - @images.each_slice(9) do |row|
       .hexagon-row
         - row.each do |media_item|
-
           .hexagon
-            %a{ href: media_item.link, title: "View image on instagram" }
+            %a.hexagon__link{ href: media_item.link, title: "View image on instagram" }
               %img(src="#{media_item.images.thumbnail.url}")
-              %span.likes-count= media_item.likes.count
