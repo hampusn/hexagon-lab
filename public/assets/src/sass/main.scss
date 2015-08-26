@@ -15,6 +15,12 @@
 // Bourbon
 @import "bourbon";
 
+// Layout
+@import "layout/structure";
+@import "layout/header";
+@import "layout/content";
+
 // Modules
+@import "modules/button";
 @import "modules/clip-path";
 @import "modules/hexagon";

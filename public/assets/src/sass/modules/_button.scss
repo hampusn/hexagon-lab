@@ -1,0 +1,40 @@
+/**
+ * @file
+ * @group Modules
+ * Sass Partial: modules/_button.scss
+ * 
+ * Contains styling for buttons.
+ *
+ * 1. Config - Configuration and variables
+ * 2. Base - Basic styling
+ */
+
+
+/*
+ * 1. Config
+ ******************/
+
+
+/*
+ * 2. Base
+ ******************/
+
+.btn {
+	background: #666;
+	border: 0.1em solid #444;
+	border-bottom: 0.3em solid #222;
+	border-radius: 0.2em;
+	color: #fff;
+	display: inline-block;
+	font-weight: 700; 
+	padding: 0.4em 0.6em;
+	text-decoration: none;
+}
+
+.btn--small {
+	font-size: 0.8em; 
+}
+
+.btn--large {
+	font-size: 1.2em; 
+}

@@ -1,0 +1,32 @@
+/**
+ * @file
+ * @group Layout
+ * Sass Partial: layout/_header.scss
+ * 
+ * Contains styling for the site header.
+ *
+ * 1. Config - Configuration and variables
+ * 2. Base - Basic styling
+ */
+
+
+/*
+ * 1. Config
+ ******************/
+
+
+/*
+ * 2. Base
+ ******************/
+
+.site-header {
+	background: #ddd;
+	padding: 0.5em 0;
+}
+.site-header__topbar {
+	padding: 0 1em;
+	
+	.user {
+		 
+	}
+}

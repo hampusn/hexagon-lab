@@ -1,0 +1,31 @@
+/**
+ * @file
+ * @group Layout
+ * Sass Partial: layout/_content.scss
+ * 
+ * Contains styling for the content section.
+ *
+ * 1. Config - Configuration and variables
+ * 2. Base - Basic styling
+ */
+
+
+/*
+ * 1. Config
+ ******************/
+
+
+/*
+ * 2. Base
+ ******************/
+
+.page-layout-default,
+.page-layout-wide {
+	margin: 0 auto;
+}
+
+.page-layout-default {
+	max-width: 60em;
+}
+
+.page-layout-wide {}

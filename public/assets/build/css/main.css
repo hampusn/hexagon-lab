@@ -6,7 +6,7 @@
  * Main styling
  * 
  * Version: 0.0.2
- * Latest built: Wed Aug 26 2015 07:47:20 GMT+0200 (CEST)
+ * Latest built: Wed Aug 26 2015 16:22:01 GMT+0200 (CEST)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
@@ -364,6 +364,107 @@ th {
 
 /**
  * @file
+ * @group Layout
+ * Sass Partial: layout/_structure.scss
+ * 
+ * Contains generic rules for grid and columns.
+ *
+ * 1. Config - Configuration and variables
+ * 2. Base - Basic styling
+ */
+/*
+ * 1. Config
+ ******************/
+/*
+ * 2. Base
+ ******************/
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 60em;
+  padding: 0 1em; }
+
+/**
+ * @file
+ * @group Layout
+ * Sass Partial: layout/_header.scss
+ * 
+ * Contains styling for the site header.
+ *
+ * 1. Config - Configuration and variables
+ * 2. Base - Basic styling
+ */
+/*
+ * 1. Config
+ ******************/
+/*
+ * 2. Base
+ ******************/
+.site-header {
+  background: #ddd;
+  padding: 0.5em 0; }
+
+.site-header__topbar {
+  padding: 0 1em; }
+
+/**
+ * @file
+ * @group Layout
+ * Sass Partial: layout/_content.scss
+ * 
+ * Contains styling for the content section.
+ *
+ * 1. Config - Configuration and variables
+ * 2. Base - Basic styling
+ */
+/*
+ * 1. Config
+ ******************/
+/*
+ * 2. Base
+ ******************/
+.page-layout-default,
+.page-layout-wide {
+  margin: 0 auto; }
+
+.page-layout-default {
+  max-width: 60em; }
+
+/**
+ * @file
+ * @group Modules
+ * Sass Partial: modules/_button.scss
+ * 
+ * Contains styling for buttons.
+ *
+ * 1. Config - Configuration and variables
+ * 2. Base - Basic styling
+ */
+/*
+ * 1. Config
+ ******************/
+/*
+ * 2. Base
+ ******************/
+.btn {
+  background: #666;
+  border: 0.1em solid #444;
+  border-bottom: 0.3em solid #222;
+  border-radius: 0.2em;
+  color: #fff;
+  display: inline-block;
+  font-weight: 700;
+  padding: 0.4em 0.6em;
+  text-decoration: none; }
+
+.btn--small {
+  font-size: 0.8em; }
+
+.btn--large {
+  font-size: 1.2em; }
+
+/**
+ * @file
  * @group Modules
  * Sass Partial: modules/_clip-path.scss
  * 
@@ -380,6 +481,7 @@ th {
  ******************/
 .clip-path {
   height: 0;
+  position: absolute;
   width: 0; }
 
 /**
