@@ -23,12 +23,23 @@
     -# ==========================================================================
 
     #page
+      .site-header
+        .site-header__topbar.container
+          - if @user
+            %p
+              = @user.username
+              %a.btn.btn--small.btn-logout{ href: "/logout", title: "Destroy the cookie!" } Logout
+          - else
+            %p Unknown
 
-      =yield
+      .site-main
+        =yield
+
+      .site-footer
 
     -# ==========================================================================
     -# JS
     -# ==========================================================================
 
-    -# %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"}
-    -# %script{:src => "/js/app.js"}
+    %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"}
+    %script{:src => "/assets/build/js/main.js"}

@@ -1,5 +1,5 @@
 var project = require('./package.json'),
-    gulp = require('gulp');
+    gulp = require('gulp'),
     sass = require('gulp-sass'),
     neat = require('node-neat'),
     normalize = require('node-normalize-scss'),
@@ -23,7 +23,7 @@ gulp.task('sass', function () {
 });
 
 // Javascript
-gulp.task('js', function() {
+gulp.task('js', function () {
   gulp.src(['./public/assets/src/js/*.js', '!./public/assets/src/js/main.js'])
     .pipe(uglify({
       'preserveComments': 'some'
@@ -39,7 +39,7 @@ gulp.task('js', function() {
 });
 
 // Images
-gulp.task('img', function() {
+gulp.task('img', function () {
   gulp.src('./public/assets/src/img/**/*.{jpg,jpeg,png,gif,svg}')
     .pipe(imagemin({
       'optimizationLevel': 5,
@@ -49,7 +49,7 @@ gulp.task('img', function() {
 });
 
 // Watch
-gulp.task('watch', function() {
+gulp.task('watch', function () {
   // watch style files
   gulp.watch('./public/assets/src/sass/**/*.scss', ['sass']);
   // Watch script files

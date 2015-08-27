@@ -1,11 +1,9 @@
-
-
-%p= @user.username
-
-.hexagon-wrapper
-  .hexagon-container
-    - @images.each_slice(9) do |row|
-      .hexagon-row
-        - row.each do |media_item|
-          .hexagon
-            %img(src="#{media_item.images.thumbnail.url}")
+.page-index
+  .hexagon-wrapper
+    .hexagon-container
+      - @images.each_slice(9) do |row|
+        .hexagon-row
+          - row.each do |media_item|
+            .hexagon
+              %a.hexagon__link{ href: media_item.link, title: "View image on instagram" }
+                %img(src="#{media_item.images.thumbnail.url}")
