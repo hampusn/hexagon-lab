@@ -1,4 +1,4 @@
-require 'sinatra'
+require 'sinatra/base'
 require 'instagram'
 require 'sinatra/activerecord'
 require 'dotenv'
