@@ -1,6 +1,8 @@
 class CreateMediaItems < ActiveRecord::Migration
   def up
     create_table :media_items do |t|
+      t.string :item_id
+
       t.text :caption_text
 
       t.float :location_latitude
@@ -11,8 +13,12 @@ class CreateMediaItems < ActiveRecord::Migration
       t.string :standard_resolution_url
       t.string :thumbnail_url
 
-      t.timestamps
+      t.timestamp :created_time
+
+      t.timestamps null: false
     end
+
+    add_index :media_items, :item_id, :unique => true
   end
 
   def down
