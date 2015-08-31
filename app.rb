@@ -7,6 +7,9 @@ require 'dotenv'
 # Production variables are handled in Heroku's interface.
 Dotenv.load
 
+Dir.glob("models/*.rb").each { |r| require_relative r }
+Dir.glob("controllers/*.rb").each { |r| require_relative r }
+
 INSTAGRAM_CALLBACK_URL = ENV['INSTAGRAM_CALLBACK_URL']
 INSTAGRAM_CLIENT_ID = ENV['INSTAGRAM_CLIENT_ID']
 INSTAGRAM_CLIENT_SECRET = ENV['INSTAGRAM_CLIENT_SECRET']
@@ -21,7 +24,7 @@ module Hampusn
     class App < Sinatra::Base
       enable :sessions
 
-      require './models/mediaitem'
+      use Hampusn::HexagonLab::Controllers::MediaController
 
       def require_logged_in
         redirect('/login') unless is_authenticated?
