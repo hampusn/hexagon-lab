@@ -1,9 +1,7 @@
 # Media Controller
 
-# require 'json'
+require 'date'
 require 'sinatra/json'
-
-require_relative '../models/mediaitem.rb'
 
 include Hampusn::HexagonLab::Models
 
@@ -13,9 +11,9 @@ module Hampusn
       class MediaController < Sinatra::Base
         
         get '/media/latest' do
-          media_items = MediaItem.all # .limit(20).order('created_time desc')
+          media_items = MediaItem.all.limit(20).order('created_time desc')
 
-          json media_items
+          json :status => "success", :items => media_items
         end
 
         get '/media/update' do
@@ -44,7 +42,7 @@ module Hampusn
             mi.url = item.link
             mi.standard_resolution_url = item.images.standard_resolution.url
             mi.thumbnail_url = item.images.thumbnail.url
-            mi.created_time = item.created_time
+            mi.created_time = DateTime.strptime(item.created_time.to_s, '%s')
 
             mi.save
 
@@ -52,7 +50,7 @@ module Hampusn
 
 
 
-          json media_items
+          json :status => "success"
 
         end
 
