@@ -3,4 +3,4 @@ window.Modernizr=function(e,t,n){function r(e){g.cssText=e}function o(e,t){retur
 /*!
  * Main script for hampusn-hexagon-lab.
  */
-!function(s,n,t,o){s(function(){s("html").removeClass("no-js").addClass("js")})}(jQuery,this,this.document);
+!function(a,n,e,t){a(function(){a("html").removeClass("no-js").addClass("js");var e=function(){var t=a.getJSON("/media/update",function(a,n,e){console.log(a,n)});t.always(function(a,t,s){setTimeout(e,parseInt(n.HampusnHexagonLab.vars.updateInterval))})};e()}),n.HampusnHexagonLab={vars:{updateInterval:3e5}}}(jQuery,this,this.document);
