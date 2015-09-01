@@ -45,25 +45,7 @@ module Hampusn
           redirect '/'
         end
 
-        search_tag = params[:tag] || 'coffee'
-
-        tags = client.tag_search(search_tag)
-        tag_name = tags[0].name
-
-        @images = client.tag_recent_media(tag_name)
-        next_max_id = @images.pagination.next_max_id
-
-        $i = 0
-        $num = 3
-
-        while $i < $num  do
-          next_images = client.tag_recent_media(tag_name, :max_id => next_max_id)
-          next_max_id = next_images.pagination.next_max_id
-
-          @images += next_images
-
-          $i += 1
-        end
+        @media_items = MediaItem.all.limit(80).order('created_time desc')
 
         @title = "Hexagon Lab"
         haml :index
