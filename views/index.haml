@@ -4,6 +4,6 @@
       - @media_items.each_slice(9) do |row|
         .hexagon-row
           - row.each do |media_item|
-            .hexagon
+            .hexagon{ data: { "created-time": media_item.created_time } }
               %a.hexagon__link{ href: media_item.url, title: "View image on instagram" }
                 %img(src="#{media_item.thumbnail_url}")
