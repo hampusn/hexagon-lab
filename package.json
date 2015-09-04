@@ -1,6 +1,6 @@
 {
   "name": "hampusn-hexagon-lab",
-  "version": "0.0.2",
+  "version": "0.0.6",
   "description": "",
   "scripts": {
     "gulp": "./node_modules/.bin/gulp"
