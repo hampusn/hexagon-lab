@@ -24,6 +24,8 @@ gulp.task('sass', function () {
 
 // Javascript
 gulp.task('js', function () {
+  var now = new Date();
+
   gulp.src(['./public/assets/src/js/*.js', '!./public/assets/src/js/main.js'])
     .pipe(uglify({
       'preserveComments': 'some'
@@ -35,6 +37,8 @@ gulp.task('js', function () {
       'preserveComments': 'some'
     }))
     .pipe(concat('main.js', { 'newLine': '\r\n\r\n' }))
+    .pipe(replace('{{timestamp}}', now.toString()))
+    .pipe(replace('{{version}}', project.version))
     .pipe(gulp.dest('./public/assets/build/js/'));
 });
 

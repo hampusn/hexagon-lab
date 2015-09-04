@@ -1,5 +1,12 @@
 /*!
+ * @file
+ * @group hampusn-hexagon-lab
+ * @author Hampus Nordin <nordin.hampus@gmail.com>
+ * 
  * Main script for hampusn-hexagon-lab.
+ * 
+ * Version: {{version}}
+ * Latest built: {{timestamp}}
  */
 (function ($, window, document, undefined) {
 	// Document ready
